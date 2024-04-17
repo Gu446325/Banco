@@ -10,19 +10,19 @@ public class UsuarioController {
         this.banco = banco;
     }
 
-    public boolean cadastrarUsuario(String nome, String cpf, String senha) {
+    public boolean cadastrarUsuario(String nome, String email, String senha) {
         // Verifica se o usuário já existe
         for (Usuario usuarioExistente : banco.getUsuarios()) {
-            if (usuarioExistente.getCpf().equals(cpf)) {
+            if (usuarioExistente.getEmail().equals(email)) {
                 return false; // Usuário já existe
             }
         }
-        Usuario novoUsuario = new Usuario(nome, cpf, senha);
+        Usuario novoUsuario = new Usuario(nome, email, senha);
         banco.adicionarUsuario(novoUsuario);
         return true;
     }
 
-    public Usuario autenticarUsuario(String cpf, String senha) {
-        return banco.buscarUsuario(cpf, senha);
+    public Usuario autenticarUsuario(String email, String senha) {
+        return banco.buscarUsuario(email, senha);
     }
 }

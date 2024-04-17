@@ -51,9 +51,9 @@ public class ContaController {
         return false;
     }
 
-    public Conta encontrarContaPorCPF(String cpf) {
+    public Conta encontrarContaPorCPF(String email) {
         for (Conta conta : banco.getContas()) {
-            if (conta.getTitular().getCpf().equals(cpf)) {
+            if (conta.getTitular().getEmail().equals(email)) {
                 // Aqui, você pode decidir qual conta escolher se o usuário tiver múltiplas
                 return conta;
             }
